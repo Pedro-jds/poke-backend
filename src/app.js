@@ -1,12 +1,25 @@
-const express = require('express')
-const app = express()
+import express, { json } from 'express';
+import { errors } from 'celebrate';
 
 
+import routes from './routes';
 
-app.get('/', (req, res) => {
-    res.send(`app funcionando`)
-  })
+class App {
+    constructor() {
+        this.server = express();
+        this.middlewares();
+        this.routes();
+    }
+
+    middlewares() {
+		this.server.use(json());
+	}
+
+	routes() {
+		this.server.use(routes);
+		this.server.use(errors());
+    }
+}
   
   
-  
-  module.exports = app
+export default new App().server;

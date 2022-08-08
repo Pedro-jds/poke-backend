@@ -1,6 +1,4 @@
-const app = require('./app')
-const port = process.env.PORT || 3002
+import app from './app';
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-  })
+
+app.listen(3333, console.log(`app listening at http://localhost:3333/pokemons`));
