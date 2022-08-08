@@ -1,0 +1,24 @@
+{
+  "name": "pokebackend",
+  "version": "1.0.0",
+  "description": "api-pokemon",
+  "main": "./src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "start": "node ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedro-jds/poke-backend.git"
+  },
+  "author": "Pedro junior",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pedro-jds/poke-backend/issues"
+  },
+  "homepage": "https://github.com/Pedro-jds/poke-backend#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
