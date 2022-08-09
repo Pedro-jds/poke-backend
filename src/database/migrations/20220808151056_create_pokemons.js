@@ -12,8 +12,6 @@ export function up(knex)    {     return knex.schema.createTable('pokemons', (ta
         table.integer('special_defense',3).notNullable
         table.integer('speed',3).notNullable
     }); }
-  
-
 
 /**
  * @param { import("knex").Knex } knex

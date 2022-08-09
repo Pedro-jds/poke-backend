@@ -1,18 +1,51 @@
+import { json } from 'express';
 import db from '../../database/database';
 
 class pokemonsController {
     async getPokemons() {
         const pokemons =  await db('pokemons')
-        .select('id','name','hp','attack','defense','special_attack','special_defense','speed')  
-        return pokemons
+        .select('*')
+        const arr = pokemons.map(pkm =>{
+            const arrFormat = {
+                "name":pkm.name,
+                "attributes": {
+                    "hp":pkm.hp,
+                    "attack":pkm.attack,
+                    "defense":pkm.defense,
+                    "special_attack":pkm.special_attack,
+                    "special_defense":pkm.special_defense,
+                    "speed":pkm.speed,
+                }
+            }
+            return arrFormat
+        })
+        
+        console.log(arr)
+        return arr
     }
 
     async getPokemon(pokemon_id) {
         const pokemon = await db('pokemons')
-        .select('id','name','hp','attack','defense','special_attack','special_defense','speed')
-        .where({id:pokemon_id});
+        .select('*')
+        .where({id:pokemon_id})
+        const arr = pokemon.map(pkm =>{
+            const arrFormat = {
+                "id":pkm.id,
+                "name":pkm.name,
+                "attributes": {
+                    "hp":pkm.hp,
+                    "attack":pkm.attack,
+                    "defense":pkm.defense,
+                    "special_attack":pkm.special_attack,
+                    "special_defense":pkm.special_defense,
+                    "speed":pkm.speed,
+                }
+            }
+            return arrFormat
+        })
         
-        return pokemon
+        console.log(arr)
+        return arr
     }
 
     async deletePokemon(pokemon_id) {
@@ -34,6 +67,8 @@ class pokemonsController {
             special_defense: special_defense,
             speed: speed
         })
+
+
 
         return pokemon
     }

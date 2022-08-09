@@ -10,5 +10,11 @@ export const development = {
     migrations: {
         directory: './src/database/migrations',
     },
+    typeCast: function (field, next) {
+        if (field.type === 'JSON') {
+          return (JSON.parse(field.string()))
+        }
+        return next()
+      },
     useNullAsDefault: true,
 };
