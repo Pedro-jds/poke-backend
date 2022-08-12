@@ -37,13 +37,11 @@ class compararPokemonController {
       if (atributos_1 > atributos_2) {
         playerWinner1 = 1;
         playerWinner2 = 2;
-
       } else if (atributos_2 > atributos_1) {
         playerWinner1 = 2;
         playerWinner2 = 1;
-        
       } else if (atributos_1 === atributos_2) {
-        return ;
+        return;
       }
 
       return resultado;
@@ -53,9 +51,8 @@ class compararPokemonController {
     console.log(pkm2);
 
     let a = vencedor(pkm1, pkm2);
-    
-    if(a===undefined)
-    return { message: "empate" }
+
+    if (a === undefined) return { message: "empate" };
 
     let arr = {
       winner: playerWinner1,
@@ -74,8 +71,6 @@ class compararPokemonController {
 
     return arr;
   }
-
-  
 }
 
 export default new compararPokemonController();
