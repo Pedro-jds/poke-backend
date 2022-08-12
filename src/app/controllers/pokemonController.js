@@ -22,11 +22,13 @@ class pokemonsController {
     return pokemonList;
   }
 
-  async getPokemonsList(page) {
-    const pokemons = await db("pokemons").paginate({
-      perPage: 10,
-      currentPage: page,
-    });
+  async getPokemonsList(page, filter) {
+    const pokemons = await db("pokemons")
+      .andWhereILike("name", `%${filter}%`)
+      .paginate({
+        perPage: 10,
+        currentPage: page,
+      });
     const pokemonList = pokemons.data.map((pkm) => {
       const formatPkmList = {
         name: pkm.name,

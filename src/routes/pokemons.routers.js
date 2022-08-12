@@ -10,9 +10,10 @@ pokemonsRouter.get("/", async (req, res) => {
   return res.json(pokemons);
 });
 
-pokemonsRouter.get("/list", async (req, res) => {
-  const page = req.query.page
-  const pokemons = await pokemonController.getPokemonsList(page);
+pokemonsRouter.get("/filter", async (req, res) => {
+  const filter = req.query.filter;
+  const page = req.query.page;
+  const pokemons = await pokemonController.getPokemonsList(page, filter);
 
   return res.json(pokemons);
 });
