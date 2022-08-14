@@ -1,19 +1,17 @@
 import { Router } from "express";
 
-import compararPokemonsController from "../app/controllers/compararPokemonController";
 import countWinscontroller from "../app/controllers/countWinscontroller";
+import compararPokemonsController, {
+  cardValidation,
+} from "../app/controllers/compararPokemonController";
 
 const compararPokemonsRouter = Router();
 
-compararPokemonsRouter.get("/:id_1/:id_2", async (req, res) => {
-  const pokemon_id_1 = req.params.id_1;
-  const pokemon_id_2 = req.params.id_2;
+compararPokemonsRouter.post("/", cardValidation, async (req, res) => {
+  const pokemonIds = req.body;
 
-  const pokemon = await compararPokemonsController.getPokemons(
-    pokemon_id_1,
-    pokemon_id_2
-  );
-  if(pokemon.winner){
+  const pokemon = await compararPokemonsController.postComparar(pokemonIds);
+  if (pokemon.winner) {
     await countWinscontroller.countWins(pokemon.winner);
   }
   return res.json(pokemon);

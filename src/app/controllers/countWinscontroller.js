@@ -6,9 +6,12 @@ class countWinsController {
   }
 
   async getWins() {
-    const delPokemon = await db("counter_wins").select("*");
-
-    return delPokemon;
+    const playerwins = await db("counter_wins").select("*");
+    const wins = {
+      PlayerOne: playerwins[0].wins,
+      playerTwo: playerwins[1].wins,
+    };
+    return wins;
   }
 }
 
