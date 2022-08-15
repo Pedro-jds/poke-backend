@@ -7,9 +7,8 @@ import compararPokemonsController, {
 
 const compararPokemonsRouter = Router();
 
-compararPokemonsRouter.post("/", cardValidation, async (req, res) => {
+compararPokemonsRouter.post("/",cardValidation, async (req, res) => {
   const pokemonIds = req.body;
-
   const pokemon = await compararPokemonsController.postComparar(pokemonIds);
   if (pokemon.winner) {
     await countWinscontroller.countWins(pokemon.winner);

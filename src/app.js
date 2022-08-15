@@ -1,9 +1,10 @@
 import express, { json } from "express";
-import "express-async-errors";
+import 'express-async-errors';
 import { errors } from "celebrate";
 
 import routes from "./routes";
-import errorMiddleware from "./app/middlewares/error";
+import errorMiddleware from './app/middlewares/error';
+import cors from "cors"
 
 class App {
   constructor() {
@@ -13,13 +14,14 @@ class App {
   }
 
   middlewares() {
-    this.server.use(express.json());
+    this.server.use(json());
+    this.server.use(cors())
   }
 
   routes() {
     this.server.use(routes);
     this.server.use(errors());
-    this.server.use(errorMiddleware);
+    this.server.use(errorMiddleware)
   }
 }
 

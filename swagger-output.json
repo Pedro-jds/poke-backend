@@ -1,0 +1,272 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Pokebackend",
+    "description": "API REST construída com nodejs/express que permite criar/consultar/alterar/deletar e comparar dados de pokemons"
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/pokemons/": {
+      "get": {
+        "tags":[
+          "CRUD pokemons"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags":[
+          "CRUD pokemons"
+        ],
+        "description": "Rota post para cadastrar um novo pokemon, não permite nomes duplicados",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "required": true,
+                  "type": "string",
+                  "example": "pikachu"
+                },
+                "attributes": {
+                  "type": "object",
+                  "required": true,
+                  "properties": {
+                    "hp": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 50
+                    },
+                    "attack": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 50
+                    },
+                    "defense": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 50
+                    },
+                    "special_attack": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 50
+                    },
+                    "special_defense": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 50
+                    },
+                    "speed": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 50
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/pokemons/{id}": {
+      "get": {
+        "tags":[
+          "CRUD pokemons"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags":[
+          "CRUD pokemons"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags":[
+          "CRUD pokemons"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "object",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "required": true,
+                  "type": "string",
+                  "example": "pichu"
+                },
+                "attributes": {
+                  "type": "object",
+                  "required": true,
+                  "properties": {
+                    "hp": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 70
+                    },
+                    "attack": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 60
+                    },
+                    "defense": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 70
+                    },
+                    "special_attack": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 60
+                    },
+                    "special_defense": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 25
+                    },
+                    "speed": {
+                      "type": "integer",
+                      "required": true,
+                      "example": 3
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/comparar/": {
+      "post": {
+        "tags":[
+          "Comparar pokemons"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "object",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "playerOneCard": {
+                  "required": true,
+                  "type": "integer",
+                  "example": 3
+                },
+                "playerTwoCard": {
+                  "required": true,
+                  "type": "integer",
+                  "example": 1
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/vitorias/": {
+      "get": {
+        "tags":[
+          "Verificar vitorias"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
