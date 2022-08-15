@@ -28,9 +28,8 @@ pokemonsRouter.delete("/:id", async (req, res) => {
   return res.json(pokemon);
 });
 
-pokemonsRouter.post("/",pokemonValidation, async (req, res) => {
+pokemonsRouter.post("/", pokemonValidation, async (req, res) => {
   const body = req.body;
-  console.log(req)
 
   const pokemon = await pokemonController.postPokemon(body);
   return res.status(201).json(pokemon);

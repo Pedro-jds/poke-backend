@@ -53,7 +53,8 @@ class compararPokemonController {
         } else if (pkm2[key] > pkm1[key]) {
           attributes_2 += 1;
         }
-        result[key] = pkm1[key] > pkm2[key] ? 1 : pkm1[key] === pkm2[key] ? 0 : 2;
+        result[key] =
+          pkm1[key] > pkm2[key] ? 1 : pkm1[key] === pkm2[key] ? 0 : 2;
       }
       if (attributes_1 > attributes_2) {
         playerWinner1 = 1;
