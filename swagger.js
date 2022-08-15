@@ -23,5 +23,5 @@ const outputFile = './swagger-output.json'
 const endpointsFiles = ['./src/app']
 
 swaggerAutogen()(outputFile, endpointsFiles, doc).then(async() => {
-    await import('./src/app')           // Your project's root file
+    await import('./src/app')           
 })
