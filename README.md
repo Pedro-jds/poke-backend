@@ -18,7 +18,7 @@ Antes de iniciar, se assegure que possui os requisitos abaixo:
 - [Docker](https://www.docker.com/) ou [Mysql5.7](https://dev.mysql.com/downloads/windows/installer/5.7.html) para o banco de dados
 
 
-## Configurar MySQL
+# Configurar MySQL
 
 Crie uma instância de MySQL em sua máquina.
 
@@ -57,28 +57,28 @@ SELECT DATABASE();
 ```
 
 
-## Instalação/Execução
+# Instalação/Execução
 
 Para instalar/executar este projeto, siga as seguintes etapas:
 
-# Clone este repositório
+## Clone este repositório
 $ git clone <https://github.com/Pedro-jds/poke-backend>
 
 
-# Acesse a pasta do projeto no terminal/cmd
+## Acesse a pasta do projeto no terminal/cmd
 $ cd poke-backend
 
 
-# Instale as dependências
+## Instale as dependências
 $ npm install
 
 
-## Execute as Migrations
+## Execute as Migrations para criação das tabelas necessárias no banco de dados
 $npx knex migrate:latest
 
 
-# Execute a aplicação em modo de desenvolvimento
+## Execute a aplicação em modo de desenvolvimento
 $ npm start
 
-# O servidor inciará na porta:3333 - acesse <http://localhost:3333/doc> 
+## O servidor inciará na porta:3333 - acesse <http://localhost:3333/doc> 
 
