@@ -1,8 +1,8 @@
 # Desafio SomoS
 
-Linguagem: `Javascript`
+Linguagem: `Javascript`/`NODEJS`
 
-Framework: `NODEJS`
+Framework: `Express`
 
 ## Descrição
 
@@ -17,8 +17,14 @@ Antes de iniciar, se assegure que possui os requisitos abaixo:
 - [VSCode](https://code.visualstudio.com/) para trabalhar com o código
 - [Docker](https://www.docker.com/) ou [Mysql5.7](https://dev.mysql.com/downloads/windows/installer/5.7.html) para o banco de dados
 
+## Bibliotecas utilizadas:
+* [Nodemon](https://nodemon.io/) - recarregamento automático durante desenvolvimento.
+* [Swagger-UI](https://github.com/swagger-api/swagger-ui) - Visualizar, consumir e documentar APIREST
+* [Celebrate](https://github.com/arb/celebrate#readme) - Para fazer validação de dados
+* [Knex](https://knexjs.org/) - SQL query builder
 
-# Configurar MySQL
+
+## Configurar MySQL
 
 Crie uma instância de MySQL em sua máquina.
 
@@ -56,7 +62,6 @@ USE pokebackend;
 # Verifique se a database certa foi selecionada
 SELECT DATABASE();
 ```
-
 
 # Instalação/Execução
 
