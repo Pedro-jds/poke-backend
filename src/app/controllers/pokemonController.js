@@ -58,12 +58,17 @@ class pokemonsController {
     const delPokemon = await db("pokemons").where({ id: pokemon_id }).delete();
     if (delPokemon === 0) {
       throw new AppError({
-        error: "Pokemon não cadastrado",
-        statusCode: 400,
+        error: "Pokemon não encontrado",
+        statusCode: 404,
       });
     }
 
-    return delPokemon;
+    const delStatus = {
+      message: "pokemon deletado",
+      status: 200,
+    };
+
+    return delStatus;
   }
 
   async postPokemon(body) {
@@ -76,6 +81,14 @@ class pokemonsController {
       special_defense: body.attributes.special_defense,
       speed: body.attributes.speed,
     });
+    if(!pokemon){
+        if (pokemon === 0) {
+            throw new AppError({
+              error: "Pokemon não cadastrado",
+              statusCode: 400,
+            });
+    }}
+
 
     const postStatus = {
       message: "pokemon cadastrado",
@@ -100,10 +113,16 @@ class pokemonsController {
     if (pokemon === 0) {
       throw new AppError({
         error: "Pokemon não cadastrado",
-        statusCode: 400,
+        statusCode: 404,
       });
     }
-    return pokemon;
+    const putStatus = {
+      message: "pokemon atualizado",
+      status: 200,
+    };
+
+
+    return putStatus;
   }
 }
 

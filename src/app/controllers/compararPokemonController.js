@@ -71,7 +71,12 @@ class compararPokemonController {
 
     const response = vencedor(pkm1, pkm2);
 
-    if (!response) return { message: "empate" };
+    if (!response) {
+      throw new AppError({
+        error: "Ocorreu um empate",
+        statusCode: 400,
+      });
+    }
 
     const obj = {
       winner: playerWinner1,

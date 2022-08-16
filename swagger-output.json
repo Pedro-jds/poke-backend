@@ -5,6 +5,11 @@
     "title": "API Pokebackend",
     "description": "API REST construída com nodejs/express que permite criar/consultar/alterar/deletar e comparar dados de pokemons"
   },
+  "contact": {
+    "name": "Pedro Junior",
+    "url": "https://github.com/Pedro-jds",
+    "email": "pedro81565@hotmail.com"
+  },
   "host": "localhost:3333",
   "basePath": "/",
   "schemes": [
@@ -24,6 +29,7 @@
           "CRUD pokemons"
         ],
         "description": "",
+        "summary": "retorna todos registros de pokemons permitindo filtrar por name e fornece paginação",
         "parameters": [
           {
             "name": "filter",
@@ -47,6 +53,7 @@
           "CRUD pokemons"
         ],
         "description": "Rota post para cadastrar um novo pokemon, não permite nomes duplicados",
+        "summary": "cadastrar novos pokemons",
         "parameters": [
           {
             "name": "body",
@@ -113,6 +120,7 @@
           "CRUD pokemons"
         ],
         "description": "",
+        "summary": "Busca um pokemon pelo Id",
         "parameters": [
           {
             "name": "id",
@@ -132,6 +140,7 @@
           "CRUD pokemons"
         ],
         "description": "",
+        "summary": "delete um pokemon pelo Id",
         "parameters": [
           {
             "name": "id",
@@ -151,6 +160,7 @@
           "CRUD pokemons"
         ],
         "description": "",
+        "summary": "permite alterar valores e nome de um pokemon passando o Id",
         "parameters": [
           {
             "name": "id",
@@ -225,6 +235,7 @@
           "Comparar pokemons"
         ],
         "description": "",
+        "summary": "permite comparar os attributes de dois pokemon passando os Ids e gera um registro de vitoria para o jogador que escolheu o vencedor",
         "parameters": [
           {
             "name": "object",
@@ -248,8 +259,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "CREATED"
           }
         }
       }
@@ -260,6 +271,7 @@
           "Verificar vitorias"
         ],
         "description": "",
+        "summary": "retorna todos os registros de vitorias entre a comparação de pokemons",
         "parameters": [],
         "responses": {
           "200": {

@@ -13,7 +13,7 @@ compararPokemonsRouter.post("/", cardValidation, async (req, res) => {
   if (pokemon.winner) {
     await countWinscontroller.countWins(pokemon.winner);
   }
-  return res.json(pokemon);
+  return res.status(201).json(pokemon);
 });
 
 export default compararPokemonsRouter;
