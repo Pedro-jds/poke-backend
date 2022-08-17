@@ -28,7 +28,7 @@
         "tags":[
           "CRUD pokemons"
         ],
-        "description": "",
+        "description": "Listar pokemons",
         "summary": "retorna todos registros de pokemons permitindo filtrar por name e fornece paginação",
         "parameters": [
           {
@@ -52,7 +52,7 @@
         "tags":[
           "CRUD pokemons"
         ],
-        "description": "Rota post para cadastrar um novo pokemon, não permite nomes duplicados",
+        "description": "Cadastrar pokemon, não permite nomes duplicados",
         "summary": "cadastrar novos pokemons",
         "parameters": [
           {
@@ -119,14 +119,14 @@
         "tags":[
           "CRUD pokemons"
         ],
-        "description": "",
+        "description": "Buscar 1 pokemon",
         "summary": "Busca um pokemon pelo Id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -139,14 +139,14 @@
         "tags":[
           "CRUD pokemons"
         ],
-        "description": "",
+        "description": "Excluir pokemon",
         "summary": "delete um pokemon pelo Id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -159,7 +159,7 @@
         "tags":[
           "CRUD pokemons"
         ],
-        "description": "",
+        "description": "Alterar pokemons",
         "summary": "permite alterar valores e nome de um pokemon passando o Id",
         "parameters": [
           {
@@ -167,7 +167,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           },
           {
@@ -234,7 +234,7 @@
         "tags":[
           "Comparar pokemons"
         ],
-        "description": "",
+        "description": "Comparar pokemons",
         "summary": "permite comparar os attributes de dois pokemon passando os Ids e gera um registro de vitoria para o jogador que escolheu o vencedor",
         "parameters": [
           {
@@ -270,7 +270,7 @@
         "tags":[
           "Verificar vitorias"
         ],
-        "description": "",
+        "description": "Exibir vitorias dos jogadores",
         "summary": "retorna todos os registros de vitorias entre a comparação de pokemons",
         "parameters": [],
         "responses": {
